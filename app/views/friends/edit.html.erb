@@ -1,0 +1,11 @@
+<h2 class="fw-normal font-monospace">Edit</h2>
+<br>
+
+<%= render "form", friend: @friend %>
+
+<br>
+
+<div>
+  <%= link_to "Show", @friend, class: 'btn btn-info me-2 text-white' %>
+  <%= link_to "Back", friends_path, class: 'btn btn-secondary' %>
+</div>
