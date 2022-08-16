@@ -38,8 +38,11 @@
   </div>
 </div>
 <br>
-<h3 class="fw-normal font-monospace">Cancel my account</h3>
+<div class="container py-2 px-4 my-3 rounded" style="background:#E9ECEF">
+  <p class="lead">
+    <h3 class="fw-normal font-monospace">Cancel my account</h3>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back, class: 'btn btn-secondary mb-5' %>
+    <%= link_to "Back", :back, class: 'btn btn-secondary' %>    
+  </p>
+</div>
