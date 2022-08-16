@@ -5,6 +5,7 @@ class FriendsController < ApplicationController
 
   def index
     @friends = Friend.all
+    @current_user_friends = Friend.all.select {|f| f.user == current_user}
   end
 
   def show

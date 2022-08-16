@@ -1,6 +1,6 @@
 <h2 class="fw-normal font-monospace">Friends List</h2>
 <br>
-<% if @friends.present? %>
+<% if @friends.present? && @current_user_friends.present? %>
   <table class="table table-striped table-hover table-bordered">
     <thead class="table-dark">
       <tr>
@@ -13,13 +13,15 @@
     </thead>
     <tbody>
       <% @friends.each do |friend| %>
-        <tr>
-          <td><%= link_to "#{friend.first_name} #{friend.last_name}", friend_path(friend), class: 'text-decoration-none' %></td>
-          <td><%= friend.email %></td>
-          <td><%= friend.phone %></td>
-          <td><%= friend.twitter %></td>
-          <td><%= link_to "Delete", friend_path(friend), class: 'btn btn-outline-danger btn-sm', method: :delete, data: { turbo_method: :delete } %></td>
-        </tr>
+        <% if friend.user == current_user %>
+          <tr>
+            <td><%= link_to "#{friend.first_name} #{friend.last_name}", friend_path(friend), class: 'text-decoration-none' %></td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.twitter %></td>
+            <td><%= link_to "Delete", friend_path(friend), class: 'btn btn-outline-danger btn-sm', method: :delete, data: { turbo_method: :delete } %></td>
+          </tr>
+        <% end %>  
       <% end %>
     </tbody>
   </table>
