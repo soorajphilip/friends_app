@@ -1,0 +1,7 @@
+.card
+  %h2.fw-normal.font-monospace.card-header Add New friend
+  .card-body
+    = render "form", friend: @friend
+%br/
+%div
+  = link_to "Back", friends_path, class: 'btn btn-secondary'

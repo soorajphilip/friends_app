@@ -1,0 +1,26 @@
+.d-flex.justify-content-between
+  %h2.fw-normal.font-monospace Friends List
+  .add-friend
+    = link_to 'Add Friend', new_friend_path, class: 'btn btn-info'
+    = link_to '#', class: 'btn btn-warning ms-2' do
+      %i.fa-solid.fa-upload
+      Upload
+%br/
+- if @friends.present? && @current_user_friends.present?
+  %table.table.table-striped.table-hover.table-bordered
+    %thead.table-dark
+      %tr
+        %th Name
+        %th Email
+        %th Phone
+        %th Twitter
+        %th Actions
+    %tbody
+      - @friends.each do |friend|
+        - if friend.user == current_user
+          %tr
+            %td= link_to "#{friend.first_name} #{friend.last_name}", friend_path(friend), class: 'text-decoration-none'
+            %td= friend.email
+            %td= friend.phone
+            %td= friend.twitter
+            %td= link_to "Delete", friend_path(friend), class: 'btn btn-outline-danger btn-sm', method: :delete, data: { turbo_method: :delete }

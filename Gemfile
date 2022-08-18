@@ -79,3 +79,4 @@ end
 gem "jquery-rails"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'pry', '~> 0.14.1'
+gem "haml-rails"

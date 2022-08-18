@@ -59,6 +59,9 @@ class FriendsController < ApplicationController
     redirect_to friends_path, notice: 'Not Authorized' if @friend.nil?
   end
 
+  def upload
+  end
+
   private
 
     def set_friend
